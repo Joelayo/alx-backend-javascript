@@ -9,8 +9,8 @@ export default class Building {
   }
 
   // Abstract method that should be implemented by classes that extend from Building
-  /* eslint-disable */
-  evacuationWarningMessage() {
-    throw new Error('Class extending Building must override evacuationWarningMessage');
+  evacuationWarningMessage(message = 'Class extending Building must override evacuationWarningMessage') {
+    this._message = message;
+    return this._message;
   }
 }
