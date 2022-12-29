@@ -1,6 +1,6 @@
 import ClassRoom from './0-classroom'; // import the ClassRoom class
 
-function initializeRooms() {
+export default function initializeRooms() {
   // Create an array of 3 ClassRoom objects with sizes 19, 20, and 34
   const rooms = [
     new ClassRoom(19),
