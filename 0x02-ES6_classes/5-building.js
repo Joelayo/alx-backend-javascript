@@ -8,6 +8,11 @@ export default class Building {
     return this._sqft;
   }
 
+  // Setter for the sqft attribute
+  set sqft(value) {
+    this._sqft = value;
+  }
+
   // Abstract method that should be implemented by classes that extend from Building
   evacuationWarningMessage(message = 'Class extending Building must override evacuationWarningMessage') {
     this._message = message;
