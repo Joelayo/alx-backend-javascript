@@ -1,18 +1,24 @@
 export default class Building {
   constructor(sqft) {
     this._sqft = sqft;
+    if (this.constructor !== Building) {
+      this.checkEvacuationWarningMessageImplementation();
+    }
   }
 
   get sqft() {
     return this._sqft;
   }
 
-  set sqft(sqft) {
-    this._sqft = sqft;
+  set sqft(value) {
+    this._sqft = value;
   }
 
-  /*eslint-disable*/
-  evacuationWarningMessage() {
-    throw new Error('Class extending Building must override evacuationWarningMessage');
+  checkEvacuationWarningMessageImplementation() {
+    if (typeof this.evacuationWarningMessage !== 'function') {
+      throw new Error(
+        'Class extending Building must override evacuationWarningMessage',
+      );
+    }
   }
 }
