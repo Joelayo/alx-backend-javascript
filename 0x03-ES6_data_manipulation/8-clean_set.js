@@ -1,11 +1,18 @@
 const cleanSet = (set, startString) => {
-  let result = '';
-  for (const val of set) {
-    if (val.startsWith(startString)) {
-      result += `${val.slice(startString.length)}-`;
+  const parts = [];
+  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
+    return '';
+  }
+  for (const value of set.values()) {
+    if (typeof value === 'string' && value.startsWith(startString)) {
+      const valueSubStr = value.substring(startString.length);
+
+      if (valueSubStr && valueSubStr !== value) {
+        parts.push(valueSubStr);
+      }
     }
   }
-  return result.slice(0, -1);
+  return parts.join('-');
 };
 
 export default cleanSet;
