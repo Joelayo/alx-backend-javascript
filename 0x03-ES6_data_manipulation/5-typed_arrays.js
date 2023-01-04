@@ -1,12 +1,12 @@
-const updateStudentGradesByCity = (students, city, newGrades) => {
-  const cityStudents = students.filter((student) => student.location === city);
-  return cityStudents.map((student) => {
-    const grade = newGrades.find((g) => g.studentId === student.id);
-    return {
-      ...student,
-      grade: grade ? grade.grade : 'N/A',
-    };
-  });
+const createInt8TypedArray = (length, position, value) => {
+  if (position < 0 || position >= length) {
+    throw new Error('Position outside range');
+  }
+
+  const buffer = new ArrayBuffer(length);
+  const view = new Int8Array(buffer);
+  view[position] = value;
+  return buffer;
 };
 
-export default updateStudentGradesByCity;
+export default createInt8TypedArray;
